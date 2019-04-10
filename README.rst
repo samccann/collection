@@ -4,6 +4,9 @@ Ansible Network Dummy Collection
 
 This is a dummy collection to show the documentation needs for a full Ansible collection that includes roles, modules, and plugins.
 
+.. contents::
+   :local:
+
 Requirements
 ============
 
@@ -43,7 +46,7 @@ The roles in this collection depend on provider roles to support the network agn
 
 * juniper_junos - This role role provides a set of network functions that are designed to work with Juniper JUNOS network devices. The functions included in this role include gathering facts from JUNOS devices, performing declarative configuration tasks and handling various operational tasks on the device.
 
-*vyos - This role provides a set of platform dependent functions that are designed to work with VyOS network devices. The functions included in this role include both configuration and fact collection.
+* vyos - This role provides a set of platform dependent functions that are designed to work with VyOS network devices. The functions included in this role include both configuration and fact collection.
 
 How to use the Ansible Network Dummy Collection
 ===============================================
@@ -194,23 +197,26 @@ If the parser argument is provided, the output from the command will be passed t
 
 The following example runs CLI command on the network node.
 
----
-- hosts: ios01
-  connection: network_cli
+.. code-block:: yaml
 
-  tasks:
-  - name: run cli command with cli task
-    import_role:
-      name: ansible-network.network-engine
-      tasks_from: cli
-    vars:
-      ansible_network_os: ios
-      command: show version
+  ---
+  - hosts: ios01
+    connection: network_cli
+
+    tasks:
+    - name: run cli command with cli task
+      import_role:
+        name: ansible-network.network-engine
+        tasks_from: cli
+      vars:
+        ansible_network_os: ios
+        command: show version
 
 When run with verbose mode, the output returned is as follows:
 
+.. code-block:: JSON
 
-ok: [ios01] => {
+  ok: [ios01] => {
     "changed": false,
     "json": null,
     "stdout": "Cisco IOS Software, IOSv Software (VIOS-ADVENTERPRISEK9-M), Version 15.6(2)T, RELEASE SOFTWARE (fc2)\nTechnical Support: http://www.cisco.com/techsupport\nCopyright (c) 1986-2016 by Cisco Systems, Inc.\nCompiled Tue 22-Mar-16 16:19 by prod_rel_team\n\n\nROM: Bootstrap program is IOSv\n\nan-ios-01 uptime is 19 weeks, 5 days, 19 hours, 14 minutes\nSystem returned to ROM by reload\nSystem image file is \"flash0:/vios-adventerprisek9-m\"\nLast reload reason: Unknown reason\n\n\n\nThis product contains cryptographic features and is subject to United\nStates and local country laws governing import, export, transfer and\nuse. Delivery of Cisco cryptographic products does not imply\nthird-party authority to import, export, distribute or use encryption.\nImporters, exporters, distributors and users are responsible for\ncompliance with U.S. and local country laws. By using this product you\nagree to comply with applicable laws and regulations. If you are unable\nto comply with U.S. and local laws, return this product immediately.\n\nA summary of U.S. laws governing Cisco cryptographic products may be found at:\nhttp://www.cisco.com/wwl/export/crypto/tool/stqrg.html\n\nIf you require further assistance please contact us by sending email to\nexport@cisco.com.\n\nCisco IOSv (revision 1.0) with  with 460033K/62464K bytes of memory.\nProcessor board ID 92O0KON393UV5P77JRKZ5\n4 Gigabit Ethernet interfaces\nDRAM configuration is 72 bits wide with parity disabled.\n256K bytes of non-volatile configuration memory.\n2097152K bytes of ATA System CompactFlash 0 (Read/Write)\n0K bytes of ATA CompactFlash 1 (Read/Write)\n0K bytes of ATA CompactFlash 2 (Read/Write)\n10080K bytes of ATA CompactFlash 3 (Read/Write)\n\n\n\nConfiguration register is 0x0"
