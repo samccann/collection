@@ -35,9 +35,6 @@ The roles in this collection depend on provider roles to support the network agn
 
 * arista_eos - This role provides a set of network functions that are designed to work with Arista EOS network devices. The functions included in this role include gathering facts from EOS devices, performing declarative configuration tasks and handling various operational tasks on the device.
 
-* cisco_asa - This role provides a set of platform dependent functions that are designed to work with Cisco ASA network devices. The functions included int his role inlcuding both configuration and fact collection.
-
-
 * cisco_ios - This role provides a set of platform dependent functions that are designed to work with Cisco IOS network devices. The functions included in this role including both configuration and fact collection.
 
 * ciso_iosxr - This role provides a set of platform dependent functions that are designed to work with Cisco IOS-XR network devices. The functions included int his role including both configuration and fact collection.
