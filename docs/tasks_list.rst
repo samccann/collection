@@ -2,6 +2,9 @@
 Tasks list
 **********
 
+.. contents::
+   :local:
+   
 config_backup role
 ==================
 

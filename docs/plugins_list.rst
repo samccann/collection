@@ -2,6 +2,9 @@
 Plugins list
 ************
 
+.. contents::
+   :local:
+   
 Action plugins
 --------------
 
