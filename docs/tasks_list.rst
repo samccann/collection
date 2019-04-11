@@ -7,6 +7,7 @@ config_backup role
 
 * config_backup
 * config_rollback
+* main_config_backup
 
 config_manager role
 ===================

@@ -1,0 +1,50 @@
+# Attempting to see what a yaml based role
+# document might look like
+
+DOCUMENTATION = """
+---
+role: config_backup
+author: Peter Sprygada (@privateip)
+short_description: Backs up current device config to Ansible controller
+description:
+  - Role to collects the current device configurations and store it on the Ansible
+    controller with a user specific backup filename and path. It copies
+    running-config from remote device via SSH. Requires network_cli connections.
+version_added: "2.5"
+variables:
+  filename:
+    description:
+      - The filename to store configuration.
+    required: yes
+    default: null
+  path:
+    description:
+      - Absolute of relative path of folder where config will be stored.
+    required: yes
+    default: null
+  backup:
+    description:
+      - boolean flag to indicate if we need to backup configurations before
+        overwriting it with new configurations.
+    default: true
+    required: yes
+"""
+
+EXAMPLES = """
+---
+- hosts: iosxr01 csr01
+  roles:
+    - backup_config
+  vars:
+        {
+          "backup_config": {
+            "filename" : "config_{{ ansible_host }}.cfg",
+            "path" : "~/network_configs_1/",
+            "backup" : "yes"
+          }
+        }
+"""
+
+RETURN = """
+
+"""
