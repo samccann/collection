@@ -190,6 +190,27 @@ How to use the network_engine role
 
 The ``network_engine`` role includes the ``cli`` task (or function). The ``cli`` task provides an implementation for running CLI commands on network devices that is platform agnostic. The ``cli`` task accepts a command and will attempt to execute that command on the remote device returning the command output.
 
+The initial release of the Network Engine role includes two parser modules:
+
+* ``command_parser`` accepts YAML input, uses an internally maintained, loosely defined parsing language based on Ansible playbook directives
+
+* ``textfsm_parser`` accepts Google TextFSM input, uses Google TextFSM parsing language
+
+Both modules iterate over the data definitions in your parser templates, parse command output from your network devices (structured ASCII text) to find matches, and then convert the matches into Ansible facts in a JSON data structure.
+
+
+To use the ``network_engine`` role:
+
+# Select the parser engine you prefer For YAML formatting, use command_parser; for TextFSM formatting, use textfsm_parser. The parser docs include examples of how to define your data and create your tasks.
+
+# Define the data you want to extract (or use a pre-existing parser template) See the parser_template sections of the command_parser and textfsm_parser docs for examples.
+
+# Create a playbook to extract the data you've defined See the Playbook sections of the command_parser and textfsm_parser docs for examples.
+Run the playbook with ansible-playbook -i /path/to/your/inventory -u my_user -k /path/to/your/playbook
+
+# Consume the JSON-formatted Ansible facts about your device(s) in inventory, templates, and tasks.
+
+
 If the parser argument is provided, the output from the command will be passed through the parser and returned as JSON facts using the engine argument.
 
 The following example runs CLI command on the network node.

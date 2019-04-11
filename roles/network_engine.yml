@@ -1,0 +1,30 @@
+# Attempting to see what a yaml based role
+# document might look like
+
+DOCUMENTATION = """
+---
+role: network_engine
+author: Peter Sprygada (@privateip)
+short_description: Provides the foundation for building network roles
+description:
+ - This role provides the foundation for building network roles by providing modules
+   and plugins that are common to all Ansible Network roles.
+   Typically this role should not be directly invoked in a playbook.
+version_added: "2.5"
+variables: {}
+"""
+
+EXAMPLES = """
+---
+ - name: run cli command with cli task
+    import_role:
+      name: ansible-network.network-engine
+      tasks_from: cli
+    vars:
+      ansible_network_os: ios
+      command: show version
+"""
+
+RETURN = """
+
+"""
