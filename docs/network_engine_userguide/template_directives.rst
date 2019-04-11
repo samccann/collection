@@ -2,6 +2,9 @@
 CLI Template Directives
 =======================
 
+.. contents::
+   :local:
+
 **Note** `network_template` lookup plugin is deprecated in v2.7.3 and will be removed
 in version v2.7.7 i.e, four releases from the deprecation version.
 

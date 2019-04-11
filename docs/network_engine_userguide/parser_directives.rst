@@ -2,6 +2,9 @@
 CLI Parser Directives
 =====================
 
+.. contents::
+   :local:
+
 The `command_parser` module is a module that can be used to parse the results of
 text strings into Ansible facts.  The primary motivation for developing the
 `command_parser` module is to convert structured ASCII text output (such as
